@@ -20,6 +20,7 @@ public class NewAssignment extends AppCompatActivity {
 
     }
 
+
     public void saveButtonAssignment(View view) {
         String className = ClassNameAssignment.getText().toString();
         String dueDate = DueDateAssignment.getText().toString();
