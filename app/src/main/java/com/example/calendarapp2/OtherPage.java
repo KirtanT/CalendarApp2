@@ -42,18 +42,4 @@ public class OtherPage extends AppCompatActivity implements View.OnClickListener
         }
     }
 
-        public void onClick(View view) {
-            Intent intent;
-            int id = view.getId();
-            if (id == R.id.NewAssigmentButton) {
-                intent = new Intent(OtherPage.this, NewAssignment.class);
-                startActivity(intent);
-            } else if (id == R.id.NewToDoButton) {
-                intent = new Intent(OtherPage.this, NewToDo.class);
-                startActivity(intent);
-            } else if (id == R.id.NewExamButton) {
-                intent = new Intent(OtherPage.this, NewExam.class);
-                startActivity(intent);
-            }
-        }
 }
