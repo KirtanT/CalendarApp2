@@ -6,12 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class OtherPage extends AppCompatActivity implements View.OnClickListener {
 
     Button assignmentBtn;
     Button toDoBtn;
     Button examBtn;
+    private ListView OtherListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +25,7 @@ public class OtherPage extends AppCompatActivity implements View.OnClickListener
         assignmentBtn = findViewById(R.id.NewAssigmentButton);
         toDoBtn = findViewById(R.id.NewToDoButton);
         examBtn = findViewById(R.id.NewExamButton);
+        OtherListView = findViewById(R.id.OtherListView);
 
         assignmentBtn.setOnClickListener(this);
         toDoBtn.setOnClickListener(this);
@@ -41,5 +46,6 @@ public class OtherPage extends AppCompatActivity implements View.OnClickListener
             startActivity(intent);
         }
     }
+
 
 }
