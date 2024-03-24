@@ -5,70 +5,64 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class EventAdapter extends ArrayAdapter<Event>
-{
-    public List<Event> events;
-    public EventAdapter(@NonNull Context context, List<Event> events)
-    {
+public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder> {
 
-        super(context, 0, events);
+    private List<Event> events;
+    private Context context;
+
+    public EventAdapter(Context context, List<Event> events) {
+        this.context = context;
         this.events = events;
-
     }
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
-    {
-        Event event = getItem(position);
+    public EventViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.event_cell, parent, false);
+        return new EventViewHolder(view);
+    }
 
-        if (convertView == null)
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.event_cell, parent, false);
+    @Override
+    public void onBindViewHolder(@NonNull EventViewHolder holder, int position) {
+        Event event = events.get(position);
 
-        TextView AssignmentEventCell1 = convertView.findViewById(R.id.AssignmentEventCell1);
-        TextView AssignmentEventCell2 = convertView.findViewById(R.id.AssignmentEventCell2);
-        TextView AssignmentEventCell3 = convertView.findViewById(R.id.AssignmentEventCell3);
+        holder.AssignmentEventCell1.setText(event.getType()); // Assuming getType() exists in your Event class
+        holder.AssignmentEventCell2.setText(event.getName()); // Assuming getName() exists in your Event class
+        holder.AssignmentEventCell3.setText(event.getLocation()); // Assuming getLocation() exists in your Event class
 
-        Button delBtn = convertView.findViewById(R.id.deleteButton);
-
-        delBtn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Event.eventsList.remove(event);
-                remove(event);
-                notifyDataSetChanged();
-            }
+        holder.delBtn.setOnClickListener(v -> {
+            events.remove(position);
+            notifyItemRemoved(position);
         });
 
-//CODE FOR EDIT BUTTON
-/**
-        Button editBtn = convertView.findViewById(R.id.editButton);
-        editBtn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Event.eventsList.remove(event);
-                remove(event);
-                Intent x = new Intent(getContext().getApplicationContext(), EventEditActivity.class);
-                x.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                getContext().startActivity(x);
-                notifyDataSetChanged();
-            }
-        });
-*/
-        String event1 = event.getType();
-        String event2 = event.getName();
-        String event3 = event.getLocation();
+        // Uncomment and modify as needed for the edit button functionality
+        // holder.editBtn.setOnClickListener(v -> { /* Handle edit */ });
+    }
 
-        AssignmentEventCell1.setText(event1);
-        AssignmentEventCell2.setText(event2);
-        AssignmentEventCell3.setText(event3);
-        return convertView;
+    @Override
+    public int getItemCount() {
+        return events.size();
+    }
+
+    static class EventViewHolder extends RecyclerView.ViewHolder {
+        TextView AssignmentEventCell1, AssignmentEventCell2, AssignmentEventCell3;
+        Button delBtn; //, editBtn;
+
+        public EventViewHolder(@NonNull View itemView) {
+            super(itemView);
+            AssignmentEventCell1 = itemView.findViewById(R.id.AssignmentEventCell1);
+            AssignmentEventCell2 = itemView.findViewById(R.id.AssignmentEventCell2);
+            AssignmentEventCell3 = itemView.findViewById(R.id.AssignmentEventCell3);
+            delBtn = itemView.findViewById(R.id.deleteButton);
+            // editBtn = itemView.findViewById(R.id.editButton); // Uncomment if using the edit button
+        }
     }
 }

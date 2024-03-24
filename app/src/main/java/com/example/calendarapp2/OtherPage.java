@@ -1,6 +1,8 @@
 package com.example.calendarapp2;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,13 +11,19 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class OtherPage extends AppCompatActivity implements View.OnClickListener {
 
     Button assignmentBtn;
     Button toDoBtn;
     Button examBtn;
-    private ListView OtherListView;
+
+    //private ListView OtherListView;
+
+    private RecyclerView otherRecyclerView;
+    private EventAdapter eventAdapter;
+    private List<Event> events;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +33,13 @@ public class OtherPage extends AppCompatActivity implements View.OnClickListener
         assignmentBtn = findViewById(R.id.NewAssigmentButton);
         toDoBtn = findViewById(R.id.NewToDoButton);
         examBtn = findViewById(R.id.NewExamButton);
-        OtherListView = findViewById(R.id.OtherListView);
+        //OtherListView = findViewById(R.id.OtherListView);
+        events = new ArrayList<>();
+
+        otherRecyclerView = findViewById(R.id.OtherListView);
+        otherRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        eventAdapter = new EventAdapter(this, events);
+        otherRecyclerView.setAdapter(eventAdapter);
 
         assignmentBtn.setOnClickListener(this);
         toDoBtn.setOnClickListener(this);
