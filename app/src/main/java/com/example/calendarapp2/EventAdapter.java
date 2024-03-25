@@ -24,7 +24,7 @@ public class EventAdapter extends ArrayAdapter<Event>
         this.events = events;
 
     }
-
+/**
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
@@ -42,7 +42,7 @@ public class EventAdapter extends ArrayAdapter<Event>
 
         delBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Event.eventsList.remove(event);
+                Event.classesArrayList.remove(event);
                 remove(event);
                 notifyDataSetChanged();
             }
@@ -61,7 +61,7 @@ public class EventAdapter extends ArrayAdapter<Event>
                 notifyDataSetChanged();
             }
         });
-*/
+
         String event1 = event.getType();
         String event2 = event.getName();
         String event3 = event.getLocation();
@@ -70,5 +70,5 @@ public class EventAdapter extends ArrayAdapter<Event>
         AssignmentEventCell2.setText(event2);
         AssignmentEventCell3.setText(event3);
         return convertView;
-    }
+    }*/
 }

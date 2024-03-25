@@ -7,26 +7,39 @@ import java.util.ArrayList;
 
 public class Event
 {
-    public static ArrayList<Event> eventsList = new ArrayList<>();
+    public static ArrayList<Event> classesArrayList = new ArrayList<>();
+    public static ArrayList<Event> otherArrayList= new ArrayList<>();
 
-
+    /**
     public void deleteEvent(String eventName) {
         for (int i = 0; i < eventsList.size(); i++) {
             if (eventsList.get(i).equals(eventName)) {
                 eventsList.remove(i);
             }
         }
-    }
+    }*/
+    private String category;
     private String name;
 
-    private String location;
-    private String type;
+    private String time;
+    private String dueDate;
 
-    public Event(String type, String name, String location)
+    public Event(String category, String name, String time, String dueDate)
     {
+        this.category = category;
         this.name = name;
-        this.location = location;
-        this.type = type;
+        this.time = time;
+        this.dueDate = dueDate;
+    }
+
+    public String getCategory()
+    {
+        return category;
+    }
+
+    public void setCategory(String name)
+    {
+        this.category = category;
     }
 
     public String getName()
@@ -39,29 +52,28 @@ public class Event
         this.name = name;
     }
 
-    public String getLocation()
+    public String getTime()
     {
-        return location;
+        return time;
     }
 
-    public void setLocation(String name)
+    public void setTime(String name)
     {
-        this.location = location;
+        this.time = time;
+    }
+    public String getDueDate()
+    {
+        return dueDate;
     }
 
-    public String getType()
+    public void setDueDate(String dueDate)
     {
-        return type;
-    }
-
-    public void setType(String name)
-    {
-        this.type = type;
+        this.dueDate = dueDate;
     }
 
     @NonNull
     @Override
     public String toString() {
-        return "Class Name: " + name + "\nTime: " + location + "\nProfessor: " + type;
+        return category + "\n" + name + "\n" + time + "\n" + dueDate;
     }
 }

@@ -42,7 +42,7 @@ public class NewClass extends AppCompatActivity {
         String itemText2 = input2.getText().toString();
         String itemText3 = input3.getText().toString();
 
-        Event newEvent = new Event(itemText, itemText2, itemText3);
-        Event.eventsList.add(newEvent);
+        Event newEvent = new Event("Class",itemText, itemText2, itemText3);
+        Event.classesArrayList.add(newEvent);
     }
 }
