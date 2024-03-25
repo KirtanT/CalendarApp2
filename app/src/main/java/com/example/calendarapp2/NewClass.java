@@ -15,8 +15,6 @@ import java.util.ArrayList;
 public class NewClass extends AppCompatActivity {
 
     Button saveButton;
-    private ListView ClassesListView;
-    private ArrayList<String> items;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

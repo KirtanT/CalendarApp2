@@ -29,14 +29,11 @@ public class OtherPage extends AppCompatActivity implements View.OnClickListener
         assignmentBtn = findViewById(R.id.NewAssigmentButton);
         toDoBtn = findViewById(R.id.NewToDoButton);
         examBtn = findViewById(R.id.NewExamButton);
-
-
         assignmentBtn.setOnClickListener(this);
         toDoBtn.setOnClickListener(this);
         examBtn.setOnClickListener(this);
 
         ClassesButton = findViewById(R.id.ClassesText);
-
         ClassesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,6 +41,10 @@ public class OtherPage extends AppCompatActivity implements View.OnClickListener
                 startActivity(new Intent(OtherPage.this, ClassesPage.class));
             }
         });
+
+        ArrayAdapter<Event> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Event.otherArrayList);
+        ListView listView = findViewById(R.id.OtherListView);
+        listView.setAdapter(adapter);
 
     }
 

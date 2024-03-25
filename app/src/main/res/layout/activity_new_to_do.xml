@@ -82,6 +82,7 @@
 
 
     <Button
+        android:id="@+id/SaveButtonToDo"
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -89,7 +90,6 @@
         android:textColor="@color/black"
         android:background="@null"
         android:textStyle="bold"
-        android:onClick="saveButtonAssignment"
         android:layout_gravity="center"
         android:textSize="20sp"/>
 

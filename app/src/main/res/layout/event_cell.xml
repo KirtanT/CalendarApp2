@@ -11,6 +11,15 @@
         android:gravity="center"
         android:layout_marginStart="20dp"
         android:id="@+id/AssignmentEventCell1"
+        android:textSize="35sp"
+        android:textColor="@color/black"
+        android:text="Event" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginStart="20dp"
+        android:id="@+id/AssignmentEventCell1"
         android:textSize="30sp"
         android:textColor="@color/black"
         android:text="Event" />
