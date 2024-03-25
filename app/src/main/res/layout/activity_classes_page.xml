@@ -6,20 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".OtherPage">
 
-    <TextView
-        android:id="@+id/ClassesText"
-        android:layout_width="61dp"
-        android:layout_height="0dp"
+
+    <Button
+        android:id="@+id/OtherText"
+        android:layout_width="74dp"
+        android:layout_height="36dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:onClick="OtherText"
         android:text="Other"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/Other"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/ClassesText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/Other"
+        android:id="@+id/ClassesText"
         android:layout_width="133dp"
         android:layout_height="0dp"
         android:layout_marginBottom="11dp"
@@ -28,7 +31,7 @@
         app:layout_constraintBottom_toTopOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ClassesText" />
+        app:layout_constraintTop_toBottomOf="@+id/OtherText" />
 
     <View
         android:id="@+id/view"
@@ -65,6 +68,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <LinearLayout
+        android:layout_width="404dp"
+        android:layout_height="494dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view">
+
+        <ListView
+            android:id="@+id/ClassesListView"
+            android:layout_width="408dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="4dp"
+            android:layout_weight="5"
+            />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

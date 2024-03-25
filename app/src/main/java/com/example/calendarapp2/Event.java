@@ -1,6 +1,8 @@
 package com.example.calendarapp2;
 
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 
 public class Event
@@ -57,4 +59,9 @@ public class Event
         this.type = type;
     }
 
+    @NonNull
+    @Override
+    public String toString() {
+        return "Class Name: " + name + "\nTime: " + location + "\nProfessor: " + type;
+    }
 }
