@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginStart="20dp"
-        android:id="@+id/AssignmentEventCell1"
+        android:id="@+id/CategoryEventCell"
         android:textSize="35sp"
         android:textColor="@color/black"
         android:text="Event" />
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginStart="20dp"
-        android:id="@+id/AssignmentEventCell1"
+        android:id="@+id/FirstEventCell"
         android:textSize="30sp"
         android:textColor="@color/black"
         android:text="Event" />
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginStart="20dp"
-        android:id="@+id/AssignmentEventCell2"
+        android:id="@+id/SecondEventCell"
         android:textSize="20sp"
         android:textColor="@color/black"
         android:text="Event" />
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginStart="20dp"
-        android:id="@+id/AssignmentEventCell3"
+        android:id="@+id/ThirdEventCell"
         android:textSize="15sp"
         android:textColor="@color/black"
         android:text="Event" />

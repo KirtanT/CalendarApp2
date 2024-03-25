@@ -45,9 +45,13 @@ public class ClassesPage extends AppCompatActivity {
                 startActivity(new Intent(ClassesPage.this, NewClass.class));
             }
         });
-        ArrayAdapter<Event> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Event.classesArrayList);
-
+        EventAdapter adapter = new EventAdapter(this, Event.classesArrayList);
         ListView listView = findViewById(R.id.ClassesListView);
         listView.setAdapter(adapter);
+/**
+ ArrayAdapter<Event> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Event.otherArrayList);
+ ListView listView = findViewById(R.id.OtherListView);
+ listView.setAdapter(adapter);
+ */
     }
 }

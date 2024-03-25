@@ -42,10 +42,15 @@ public class OtherPage extends AppCompatActivity implements View.OnClickListener
             }
         });
 
+
+        EventAdapter adapter = new EventAdapter(this, Event.otherArrayList);
+        ListView listView = findViewById(R.id.OtherListView);
+        listView.setAdapter(adapter);
+/**
         ArrayAdapter<Event> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Event.otherArrayList);
         ListView listView = findViewById(R.id.OtherListView);
         listView.setAdapter(adapter);
-
+*/
     }
 
     public void onClick(View view) {
