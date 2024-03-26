@@ -10,5 +10,36 @@ public class NewToDo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_to_do);
+<<<<<<< Updated upstream
+=======
+        saveButton = findViewById(R.id.SaveButtonToDo);
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addItem(view);
+                startActivity(new Intent(NewToDo.this, OtherPage.class));
+
+            }
+        });
+
+    }
+
+    private void addItem(View view) {
+        EditText input = findViewById(R.id.TaskToDo);
+        EditText input2 = findViewById(R.id.DescriptionToDo);
+        EditText input3 = findViewById(R.id.DueDateToDo);
+
+        String itemText = input.getText().toString();
+        String itemText2 = input2.getText().toString();
+        String itemText3 = input3.getText().toString();
+        int day = Integer.parseInt(itemText3.substring(0, 2));
+        int month = Integer.parseInt(itemText3.substring(3, 5));
+        int year = Integer.parseInt(itemText3.substring(6,10));
+        int finalInt = year + month + day;
+
+        Event newEvent = new Event("To-Do",itemText, itemText2, itemText3, 0);
+        Event.otherArrayList.add(newEvent);
+        Event.sort(Event.otherArrayList);
+>>>>>>> Stashed changes
     }
 }
