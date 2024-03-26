@@ -92,7 +92,7 @@ public class EventAdapter extends ArrayAdapter<Event> {
             }
         });
 
-        
+
         return eventView;
     }
 }
