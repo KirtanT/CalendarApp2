@@ -29,14 +29,14 @@ public class NewAssignment extends AppCompatActivity {
 
     private void addItem(View view) {
         EditText input = findViewById(R.id.ClassNameAssignment);
-        EditText input2 = findViewById(R.id.ProfessorAssignment);
-        EditText input3 = findViewById(R.id.DueDateAssignment);
+        EditText input2 = findViewById(R.id.DueDateAssignment);
+        EditText input3 = findViewById(R.id.ProfessorAssignment);
 
         String itemText = input.getText().toString();
         String itemText2 = input2.getText().toString();
         String itemText3 = input3.getText().toString();
 
-        Event newEvent = new Event("Assignment",itemText, itemText2, itemText3);
+        Event newEvent = new Event("Assignment",itemText, itemText3, itemText2);
         Event.otherArrayList.add(newEvent);
     }
 }
