@@ -60,34 +60,37 @@ public class EventAdapter extends ArrayAdapter<Event> {
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (getItem(position).getCategory().equals("Class")){
-                    events.remove(event);
-                    Intent x = new Intent(getContext().getApplicationContext(), NewClass.class);
-                    x.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    getContext().startActivity(x);
+                if (getItem(position).getCategory().equals("Class")) {
+                    events.remove(getItem(position));
+                    Intent intent = new Intent(getContext().getApplicationContext(), NewClass.class);
+                    intent.putExtra("selectedPosition", position);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    getContext().startActivity(intent);
                     notifyDataSetChanged();
+                } else {
+                    if (getItem(position).getCategory().equals("Assignment")){
+                        events.remove(event);
+                        Intent x = new Intent(getContext().getApplicationContext(), NewAssignment.class);
+                        x.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        getContext().startActivity(x);
+                        notifyDataSetChanged();
+                    }
+                    if (getItem(position).getCategory().equals("Exam")){
+                        events.remove(event);
+                        Intent x = new Intent(getContext().getApplicationContext(), NewExam.class);
+                        x.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        getContext().startActivity(x);
+                        notifyDataSetChanged();
+                    }
+                    else {
+                        events.remove(event);
+                        Intent x = new Intent(getContext().getApplicationContext(), NewToDo.class);
+                        x.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        getContext().startActivity(x);
+                        notifyDataSetChanged();
+                    }
                 }
-                if (getItem(position).getCategory().equals("Assignment")){
-                    events.remove(event);
-                    Intent x = new Intent(getContext().getApplicationContext(), NewAssignment.class);
-                    x.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    getContext().startActivity(x);
-                    notifyDataSetChanged();
-                }
-                if (getItem(position).getCategory().equals("Exam")){
-                    events.remove(event);
-                    Intent x = new Intent(getContext().getApplicationContext(), NewExam.class);
-                    x.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    getContext().startActivity(x);
-                    notifyDataSetChanged();
-                }
-                else {
-                    events.remove(event);
-                    Intent x = new Intent(getContext().getApplicationContext(), NewToDo.class);
-                    x.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    getContext().startActivity(x);
-                    notifyDataSetChanged();
-                }
+
 
             }
         });
